@@ -13,6 +13,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import GlobalApi from "../../Utils/GlobalApi";
 import { Colors } from "../../Utils/Colors";
+import AllReadingsItem from "./AllReadingsItem";
 
 interface RecentReading {
   id: string;
@@ -30,7 +31,7 @@ export default function AllReadings() {
     GlobalApi.getRecentReadings()
       .then((res) => {
         const data = res as { recentReadings: RecentReading[] };
-        console.log(data.recentReadings);
+        // console.log(data.recentReadings);
         setRecentReadings(data.recentReadings);
       })
       .catch((err) => {
@@ -38,13 +39,7 @@ export default function AllReadings() {
       });
   };
 
-  const truncateText = (text: string, maxLength: number) => {
-    if (text.length <= maxLength) {
-      return text;
-    } else {
-      return text.slice(0, maxLength) + '...';
-    }
-  }
+  
 
   useEffect(() => {
     getRecentReadings();
@@ -52,65 +47,32 @@ export default function AllReadings() {
 
   const navigation = useNavigation();
   return (
-    <SafeAreaView>
-      <ScrollView style={{ paddingHorizontal: 10 }}>
-        <TouchableOpacity
-          style={styles.headerContainer}
-          onPress={() => navigation.goBack()}
+    <SafeAreaView style={{ paddingHorizontal: 10 }}>
+      <View
+          style={{ flexDirection: "row", alignItems: "center", marginTop: 20 }}
         >
-          <AntDesign name="arrowleft" size={24} color="black" />
-        </TouchableOpacity>
-        <View>
-          <Text
+          <TouchableOpacity
             style={{
-              textAlign: "center",
-              alignSelf: "center",
-              fontSize: 20,
-              fontFamily: "pop",
+              backgroundColor: "#8a8a71",
+              padding: 10,
+              borderRadius: 100,
             }}
+            onPress={() => navigation.goBack()}
           >
+            <AntDesign name="arrowleft" size={24} color="white" />
+          </TouchableOpacity>
+          <Text style={{ fontSize: 30, fontFamily: "popSB", marginLeft: 20 }}>
             Readings
           </Text>
         </View>
         <FlatList
           data={recentReadings}
           renderItem={({ item }) => (
-            <View style={{ marginTop: 20, flexDirection: "row" }}>
-                <Image
-              source={{ uri: item.image.url }}
-              style={{ width: 150, height: 150, marginRight:10 }}
-            />
-            <View style={{ flex: 1 }}>
-              <Text style={{ marginBottom: 15, fontFamily: "pop" }}>
-                {item.name}
-              </Text>
-              <Text style={{ marginBottom: 15, fontFamily: "pop" }}>
-                Bible Verse: {item.bibleVerse}
-              </Text>
-              <Text
-                numberOfLines={2}
-                style={{ marginBottom: 15, fontFamily: "pop" }}
-              >
-                {item.study}
-              </Text>
-              <Text
-                style={{
-                  textAlign: "right",
-                  marginLeft: 40,
-                  fontFamily: "pop",
-                  fontSize: 12,
-                  textDecorationLine: "underline",
-                  color: "#8a8a71"
-                }}
-              >
-                Read More
-              </Text>
-            </View>
-          </View>
+            <AllReadingsItem item={item}/>
           )}
         />
        
-      </ScrollView>
+
     </SafeAreaView>
   );
 }

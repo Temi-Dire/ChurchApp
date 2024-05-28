@@ -4,17 +4,17 @@ import { Colors } from "../Utils/Colors";
 
 export default function Header() {
   return (
-    <View style={{ backgroundColor: Colors.PRIMARY, paddingVertical: 15 }}>
-        <Text
-          style={{
-            textAlign: "center",
-            color: Colors.SECONDARY,
-            fontSize: 17,
-            fontWeight: "700",
-          }}
-        >
-          ELEVATION CHURCH
-        </Text>
-      </View>
+    <View style={{ backgroundColor: "#8a8a71", paddingVertical: 15 }}>
+      <Text
+        style={{
+          textAlign: "center",
+          color: Colors.WHITE,
+          fontSize: 17,
+          fontWeight: "700",
+        }}
+      >
+        ELEVATION CHURCH
+      </Text>
+    </View>
   );
 }

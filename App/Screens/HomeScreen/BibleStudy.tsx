@@ -1,13 +1,12 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import React, { useEffect } from "react";
+import React from "react";
 import { church } from "../../../assets";
 import { Colors } from "../../Utils/Colors";
 import RecentReadings from "./RecentReadings";
 import { useNavigation } from "@react-navigation/native";
 
 export default function BibleStudy() {
-  const MASTER_URL2 = process.env;
-  useEffect(() => console.log(MASTER_URL2, "dire"), []);
+
   const navigation = useNavigation();
   return (
     <View>

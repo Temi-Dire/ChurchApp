@@ -5,6 +5,7 @@ import Services from "./Services";
 import BibleStudy from "./BibleStudy";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
+import Header from "../../Components/Header";
 
 
 export default function HomeScreen() {
@@ -14,20 +15,9 @@ export default function HomeScreen() {
 
   const str:string = "discover"
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: Colors.WHITE, flex: 1}}>
       <ScrollView>
-        <View style={{ backgroundColor: '#8a8a71', paddingVertical: 15 }}>
-          <Text
-            style={{
-              textAlign: "center",
-              color: Colors.SECONDARY,
-              fontSize: 17,
-              fontWeight: "700",
-            }}
-          >
-            ELEVATION CHURCH
-          </Text>
-        </View>
+        <Header />
         <View style={{ paddingHorizontal: 20, paddingVertical: 30 }}>
           <View
             style={{
@@ -78,7 +68,7 @@ export default function HomeScreen() {
             </TouchableOpacity>
           </View>
           {/* button component */}
-          <TouchableOpacity style={styles.discoverBtn} onPress={() => navigation.navigate([])}>
+          <TouchableOpacity style={styles.discoverBtn} onPress={() => navigation.navigate("discover")}>
             <Text style={{ textAlign: "center", fontWeight: "700", color: "#8a8a71" }}>
               DISCOVER
             </Text>

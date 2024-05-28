@@ -24,18 +24,33 @@ export default function Services() {
       </View>
       <View style={{ marginTop: 15 }}>
         <View style={{ marginBottom: 10 }}>
-          <Text style={styles.title}>Special Annointing Service </Text>
+          <Text style={styles.title}>Our Sunday Service </Text>
         </View>
         <View style={{ position: "relative" }}>
           <Text style={styles.description}>
-            This upcoming service is not just an ordinary gathering; it's a
-            sacred moment where we come together to seek blessings, healing, and
-            guidance from a higher power. Anointing holds a rich history in
-            various spiritual traditions, symbolizing the infusion of divine
-            grace and empowerment.
+            Experience the warmth of community and the embrace of spiritual
+            growth at our Sunday service. Join us as we come together in
+            fellowship to celebrate faith, love, and the boundless grace of our
+            Creator.
+          </Text>
+          <Text style={styles.description}>
+          From the uplifting melodies of worship to the enlightening
+            messages of hope and inspiration, our service offers a sanctuary for
+            hearts seeking solace and souls yearning for connection. Delve into
+            the depths of scripture, engage in heartfelt prayer, and witness the
+            transformative power of unity as we journey together towards a
+            deeper understanding of divine purpose and a brighter vision for
+            tomorrow. 
+          </Text>
+          <Text style={styles.description}>
+          Whether you're a seasoned believer, a seeker on the path,
+            or a curious soul exploring the mysteries of faith, you're invited
+            to join us as we gather to honor the sacred rhythms of life and
+            affirm the eternal promise of grace. Embrace the spirit of
+            community, find solace in shared reverence, and discover the joy of
+            belonging at our Sunday service.
           </Text>
         </View>
-        <Text style={styles.date}>Date: 27/04/2024</Text>
       </View>
     </View>
   );
@@ -61,6 +76,7 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     lineHeight: 22,
     fontFamily: "pop",
+    marginBottom: 18,
   },
   watchBtn: {
     position: "absolute",

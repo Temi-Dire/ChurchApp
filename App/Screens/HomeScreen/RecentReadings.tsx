@@ -25,7 +25,7 @@ export default function RecentReadings() {
     GlobalApi.getRecentReadings()
       .then((res) => {
         const data = res as { recentReadings: RecentReading[] };
-        console.log(data.recentReadings);
+        // console.log(data.recentReadings);
         setRecentReadings(data.recentReadings);
       })
       .catch((err) => {
